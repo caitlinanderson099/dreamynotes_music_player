@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
+
+/* page background */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+    font-family: "Nunito", sans-serif;
+  background: radial-gradient(circle at 10% 20%, #fff3f8 0%, #ffeefa 20%, #fff7fb 60%, #fff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* app container centers everything and gives roomy padding */
+.app-wrap {
+  padding: 28px;
+}
+
+.app-title {
+  font-size: 3em;
+  text-align: center;
+  font-weight: bold;
+  color: #ff6ea6;
+}
+
+/* WEBSITE WINDOW WIDGET */
+.window-widget {
+  width: 380px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,245,249,0.95));
+  box-shadow:
+    0 12px 30px rgba(255, 180, 200, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  overflow: hidden;
+  border: 1px solid rgba(255, 190, 215, 0.6);
+  position: relative;
+  transform: translateY(0);
+  transition: transform 180ms ease;
+}
+
+/* subtle hover lift for the whole window */
+.window-widget:hover {
+  transform: translateY(-6px);
+}
+
+/* Title bar (fake browser/app chrome) */
+.title-bar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,245,249,0.6));
+  border-bottom: 1px solid rgba(255, 200, 220, 0.5);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.6);
+}
+
+/* left side controls (red/yellow/green) */
+.window-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* fake traffic lights */
+.wc {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  cursor: default;
+}
+.wc.red { background: #ff7aa7; }
+.wc.yellow { background: #ffd27a; }
+.wc.green { background: #7be27f; }
+
+/* center title */
+.title-text {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  color: #ff6ea6;
+  font-size: 0.95rem;
+  font-family: "Quicksand", sans-serif;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* small right icon */
+.title-right {
+  width: 28px;
+  text-align: center;
+  color: #ffb6d9;
+  font-size: 1.1rem;
+}
+
+/* core player area (keeps previous styles but fits inside window) */
+.music-player {
+  padding: 18px 20px 26px 20px;
+  text-align: center;
+}
+
+/* song title + genre */
+.title {
+  font-size: 1.25rem;
+  font-family: "Nunito", sans-serif;
+  color: #ff6ea6;
+  margin: 0;
+  margin-top: 4px;
+}
+.genre {
+  font-size: 0.9rem;
+  color: #d06b96;
+  margin: 6px 0 12px 0;
+}
+
+/* cover art */
+.cover {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 4px solid rgba(255, 190, 215, 0.7);
+  margin-bottom: 16px;
+  box-shadow:
+    0 8px 20px rgba(255, 170, 200, 0.18),
+    inset 0 2px 6px rgba(255,255,255,0.6);
+  transition: transform 220ms ease;
+}
+
+/* playful hovering on cover */
+.cover:hover {
+  transform: translateY(-6px) rotate(-1deg) scale(1.02);
+}
+
+/* controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.controls button {
+  background: linear-gradient(180deg, #ffd6eb, #ffb6d9);
+  border: 0;
+  color: white;
+  font-size: 1.05rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(255, 170, 200, 0.14);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.controls button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(255, 150, 195, 0.18);
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time {
+  font-size: 12px;
+  width: 40px;
+  text-align: center;
+}
+
+/* progress bar */
+.progress-bar {
+  width: 100%;
+  margin-top: 14px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,128,181,0.25), rgba(255,200,230,0.25));
+  outline: none;
+  cursor: pointer;
+}
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff80b5;
+  box-shadow: 0 4px 10px rgba(255,130,180,0.25);
+  border: 3px solid #fff;
+}
+.progress-bar::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff80b5;
+  border: 3px solid #fff;
+}
+
+/* volume row */
+.volume {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.volume input {
+  width: 60%;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,192,208,0.3);
+}
+.volume input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff80b5;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+/* Floating emoji effect (inside the window) */
+.floating-emoji {
+  position: absolute;
+  bottom: 56px; /* above controls */
+  font-size: 1.6rem;
+  animation: floatUp 1.8s ease-out forwards;
+  opacity: 0.95;
+  pointer-events: none;
+  transform-origin: center;
+  text-shadow: 0 4px 12px rgba(255,150,190,0.12);
+}
+
+/* tweak start positions for prettier spread */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.15) rotate(-6deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-140px) scale(0.8) rotate(4deg);
+    opacity: 0;
+  }
+}
+
+/* small responsive tweaks */
+@media (max-width: 420px) {
+  .window-widget { width: 92vw; }
+  .cover { width: 160px; height: 160px; }
+}
+
+@media (max-width: 480px) {
+  .window-widget {
+    width: 95%;
+    border-radius: 10px;
+  }
+
+  .window-widget:hover {
+      transform: translateY(0px);
+  }
+
+  .music-player {
+    padding: 12px;
+  }
+
+  .music-player .cover {
+    max-height: 180px;
+    margin-bottom: 8px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .controls button {
+    font-size: 24px;
+  }
+
+  .progress-container {
+    gap: 6px;
+  }
+
+  .progress-bar {
+    height: 5px;
+  }
+
+  .time {
+    font-size: 10px;
+    width: 30px;
+  }
+
+  .volume {
+    gap: 6px;
+  }
+
+  .volume input[type=range] {
+    width: 100px;
+  }
+
+  .title-bar {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .title-text {
+    font-size: 12px;
+  }
+
+  .floating-emoji {
+    font-size: 14px !important;
+  }
+}
