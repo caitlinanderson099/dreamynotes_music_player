@@ -14,26 +14,26 @@ const songs = [
   {
     title: "Tower of Memories - ivri",
     genre: "Alternative/Indie",
-    cover: "/towerofmemories.jpeg",
-    file: "/towerofmemories.mp3",
+    cover: "/img-files/towerofmemories.jpeg",
+    file: "/audio-files/towerofmemories.mp3",
   },
   {
     title: "Here With Me - d4vd",
     genre: "Alternative/Indie",
-    cover: "/herewithme.jpeg",
-    file: "/herewithme.mp3",
+    cover: "/img-files/herewithme.jpeg",
+    file: "/audio-files/herewithme.mp3",
   },
   {
     title: "I Like The Way You Kiss Me - Artemas",
     genre: "Alternative/Indie",
-    cover: "/iliketheway.jpg",
-    file: "/iliketheway.mp3",
+    cover: "/img-files/iliketheway.jpg",
+    file: "/audio-files/iliketheway.mp3",
   },
   {
     title: "All I wanted Was You - Paramore",
     genre: "Pop Punk",
-    cover: "/alliwanted.jpeg",
-    file: "/alliwanted.mp3",
+    cover: "/img-files/alliwanted.jpeg",
+    file: "/audio-files/alliwanted.mp3",
   },
 ];
 
