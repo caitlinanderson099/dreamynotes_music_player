@@ -35,6 +35,18 @@ const songs = [
     cover: "/img-files/alliwanted.jpeg",
     file: "/audio-files/alliwanted.mp3",
   },
+  {
+  title: "Somebody Else - The 1975",
+  genre: "Alernative/Indie",
+  cover: "/img-files/somebodyelse.jpeg",
+  file: "/audio-files/somebodyelse.mp3",
+  },
+  {
+  title: "Die For You - Joji",
+  genre: "Alernative/Indie",
+  cover: "/img-files/dieforyou.jpg",
+  file: "/audio-files/dieforyou.mp3",
+  },
 ];
 
 function App() {
@@ -48,6 +60,8 @@ const [duration, setDuration] = useState(0);
 
   const audioRef = useRef(null);
   const currentSong = songs[currentSongIndex];
+const upNextSong = songs[(currentSongIndex + 1) % songs.length];
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -84,6 +98,25 @@ const [duration, setDuration] = useState(0);
     }
     setIsPlaying(!isPlaying);
   };
+
+  useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.code === "Space") {
+      e.preventDefault(); // prevent scrolling when pressing space
+      togglePlay();
+    } else if (e.code === "ArrowRight") {
+      nextSong();
+    } else if (e.code === "ArrowLeft") {
+      prevSong();
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [isPlaying, currentSongIndex]);
+
 
   const spawnFloatingEmoji = () => {
     const container = document.querySelector(".window-widget");
@@ -179,7 +212,7 @@ const [duration, setDuration] = useState(0);
     style={{ '--progress': `${progress}%` }}
   />
   <span className="time">{formatTime(duration)}</span>
-</div>
+        </div>
 
           <div className="volume">
             <span><FaVolumeUp color="#ff80b5"/></span>
@@ -193,8 +226,20 @@ const [duration, setDuration] = useState(0);
             />
           </div>
 
+          <div className="up-next">
+  <p>Up Next:</p>
+  <div className="next-song">
+    <img src={upNextSong.cover} alt={upNextSong.title} className="next-cover" />
+    <div className="next-info">
+      <h3>{upNextSong.title}</h3>
+      <p>{upNextSong.genre}</p>
+    </div>
+  </div>
+        </div>
+
           <audio ref={audioRef} src={currentSong.file} onEnded={nextSong}></audio>
         </div>
+
       </div>
     </div>
   );

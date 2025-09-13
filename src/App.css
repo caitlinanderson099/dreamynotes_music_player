@@ -16,6 +16,7 @@ body, html, #root {
   padding: 28px;
 }
 
+
 .app-title {
   font-size: 3em;
   text-align: center;
@@ -250,6 +251,41 @@ body, html, #root {
     opacity: 0;
   }
 }
+
+.up-next {
+  margin-top: 1rem;
+  text-align: center;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.next-song {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.next-cover {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.next-info h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+.next-info p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #777;
+}
+
 
 /* small responsive tweaks */
 @media (max-width: 420px) {
